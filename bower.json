@@ -1,0 +1,21 @@
+{
+  "name": "taskList",
+  "homepage": "https://github.com/leoxblive/taskList_ExamenPolymer",
+  "authors": [
+    "Leonardo De La Cruz <leonardoangel.delacruz.contractor@bbva.com>"
+  ],
+  "description": "Una lista de tareas",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0"
+  }
+}
