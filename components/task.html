@@ -1,7 +1,16 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <dom-module id="task-element">
     <template>
-        <div>
+        <style>
+            .completed{
+                background-color:aqua;
+            }
+    
+            .uncompleted{
+                background-color: antiquewhite;
+            }
+        </style>
+        <div class="uncompleted">
             <input id="idTarea" type="checkbox" value="{{completed}}">
             <label for="idTarea" value="{{taskTest}}">tarea</h3>
         </div>

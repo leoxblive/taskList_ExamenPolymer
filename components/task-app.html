@@ -4,9 +4,12 @@
 <link rel="import" href="../components/task-list.html">
 <dom-module id="task-app">
     <template>
-        <task-input></task-input>
+        <task-input on-added-task="_addedTask"></task-input>
+        <br/>
         <task-filter filter="{{filter}}"></task-filter>
-        <task-list tasks="[[tasks]]" filter="{{filter}}"></task-list>
+        <br/>
+        <br/>
+        <task-list tasks="[[tasks]]" filter="{{filter}}" on-completed-task="_completedTask" ></task-list>
     </template>
     <script>
         class TaskApp extends Polymer.Element{
@@ -31,6 +34,15 @@
                             ]
                     }
                 };
+            }
+
+            _addedTask(event){
+                console.log(event)
+                tasks.put({taskText:event.detail.taskValue, completed: false})
+            }
+
+            _completedTask(event){
+                console.log(event)
             }
         }
         console.log(TaskApp.properties.tasks)

@@ -3,9 +3,10 @@
 <dom-module id="task-list">
     <template>
         <template is="dom-repeater" items="tasks" as="taskElement">
-            <task-element completed="[[taskElement.completed]]" taskText="[[taskElement.taskText]]"></task-element>
+            <task-element completed="[[taskElement.completed]]" taskText="[[taskElement.taskText]]" on-click="_clickHandler"></task-element>
         </template>
     </template>
+    
     <script>
         class TaskList extends Polymer.Element{
             static get is()
@@ -23,6 +24,13 @@
                         type:Array
                     }
                 }
+            }
+
+             _clickHandler(event){
+                const completedTask = new CustomEvent("completed-task", {
+                    detail:{taskText: event.detail}
+                })
+                this.dispatchEvent(completedTask)
             }
         }
         customElements.define(TaskList.is, TaskList)
