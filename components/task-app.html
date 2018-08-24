@@ -1,7 +1,12 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../components/task-input.html">
+<link rel="import" href="../components/task-filter.html">
+<link rel="import" href="../components/task-list.html">
 <dom-module id="task-app">
     <template>
-        
+        <task-input></task-input>
+        <task-filter filter="{{filter}}"></task-filter>
+        <task-list tasks="[[tasks]]" filter="{{filter}}"></task-list>
     </template>
     <script>
         class TaskApp extends Polymer.Element{
@@ -9,7 +14,26 @@
             {
                 return "task-app"
             }
+
+            static get properties(){
+                return {
+                    filter:{
+                        type:String,
+                        value:""
+                    },
+                    tasks:{
+                        type: Array,
+                        value:[
+                            {
+                                taskText:"mi primera tarea", 
+                                completed:false
+                                }
+                            ]
+                    }
+                };
+            }
         }
+        console.log(TaskApp.properties.tasks)
         customElements.define(TaskApp.is, TaskApp)
     </script>
 </dom-module>

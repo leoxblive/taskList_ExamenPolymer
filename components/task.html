@@ -1,0 +1,30 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="task-element">
+    <template>
+        <div>
+            <input id="idTarea" type="checkbox" value="{{completed}}">
+            <label for="idTarea" value="{{taskTest}}">tarea</h3>
+        </div>
+    </template>
+    <script>
+        class TaskElement extends Polymer.Element{
+            static get is(){
+                return "task-element"
+            }
+
+            static get properties(){
+                return {
+                    taskTest:{
+                        type:String
+                    },
+                    completed:{
+                        type: Boolean
+                    }
+                }
+            }
+        }
+        customElements.define(TaskElement.is, TaskElement)
+    </script>
+</dom-module>
+
+

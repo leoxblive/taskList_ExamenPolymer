@@ -1,13 +1,28 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="task.html">
 <dom-module id="task-list">
     <template>
-
+        <template is="dom-repeater" items="tasks" as="taskElement">
+            <task-element completed="[[taskElement.completed]]" taskText="[[taskElement.taskText]]"></task-element>
+        </template>
     </template>
     <script>
         class TaskList extends Polymer.Element{
             static get is()
             {
                 return "task-list"
+            }
+
+            static get properties()
+            {
+                return {
+                    filter:{
+                        type: String,
+                    },
+                    tasks:{
+                        type:Array
+                    }
+                }
             }
         }
         customElements.define(TaskList.is, TaskList)

@@ -1,7 +1,8 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <dom-module id="task-input">
     <template>
-
+        <input id="inputTask"/>
+        <input id="btnSave" type="button" value="Guardar" on-click="_addedTask"/>
     </template>
     <script>
         class TaskInput extends Polymer.Element{
@@ -9,8 +10,23 @@
             {
                 return "task-input"
             }
-        }
 
+            static get properties()
+            {   
+            }
+
+            _clickHandler(event){
+                const addedTask = new CustomEvent("added-task", {
+                    detail:{taskValue: this.shadowRoot.getElementById("inputTask").value}
+                })
+                this.dispatchEvent(addedTask)
+            }
+        }
+        /*
+        _saveTask = CustomEvent(){
+
+        }
+        */
         customElements.define(TaskInput.is, TaskInput)
     </script>
 </dom-module>
